@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <lnk rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="stylesheet" href="style.css">
+  
+  <title>Interactive card details form</title>
+</head>
+<body>
+  <main>
+    <div class="container">
+      <div class="left-section">
+        <div class="cards">
+          <!-------------------------Front Card------------------>
+          <div class="front-card">
+            <img src="/images/card-logo.svg" alt="card-logo" class="card-logo">
+            <div class="card-container">
+              <img src="/images/bg-card-front.png" alt="front-card">
+              <h1 id="number">0000 0000 0000 0000</h1>
+              <div class="card-info">
+                <span id="name">Himanshu Gulia </span>
+                <span id="date">
+                  <span id="month">00</span>/<span id="year">00</span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <!------------------Back-card-------------->
+          <div class="back-card">
+            <img src="/images/bg-card-back.png" alt="back-card">
+            <span id="cvc">000</span>
+          </div>
+        </div>
+      </div>
+      <div class="right-section">
+        <form>
+          <div class="grid-1">
+          <label for="cardholder_name">CardHolder Name</label>
+          <input type="name" id="cardholder_name" placeholder="e.g. Himanshu Gulia" required>
+          </div>
+
+          <div class="grid-2">
+          <label for="card-number">Card Number</label>
+          <input type="number"
+          oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0,this.maxLength);" 
+          minlength="16"
+          maxlength="16"
+          id="card-number" placeholder="e.g. 1234 5678 9123 0000" required>
+          </div>
+
+          <div class="grid-3">
+            <div id="card-date">
+              <label for="card-date">Exp. Date (MM/YY)</label>
+              <div class="two-ip">
+                <div>
+                  <input type="number"
+                  placeholder="MM"
+                  oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0,this.maxLength);"
+                  minlength="2"
+                  maxlength="2"
+                  id="mm"
+                  required
+                  />
+                </div>
+                <div>
+                  <input type="number"
+                  placeholder="YY"
+                  oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0,this.maxLength);"
+                  minlength="2"
+                  maxlength="2"
+                  id="yy"
+                  required
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="grid-4">
+              <label for="cvc-number">CVC</label>
+              <input type="number"
+              placeholder="e.g. 123"
+              oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0,this.maxLength);"
+              minlength="3"
+              maxlength="3"
+              id="cvc-number" required>
+            </div>
+          </div>
+          <button type="submit" id="submit-button">Confirm</button>
+        </form>
+        <div class="thankyou hidden">
+          <img src="/images/icon-complete.svg" alt="completed">
+          <h1>Thank you!</h1>
+          <p>We've added your card details</p>
+          <button>Continue</button>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="https://unpkg.com/imask"></script>
+  <script src="script.js"></script>
+</body>
+</html>
